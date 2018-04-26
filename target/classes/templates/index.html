@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <title>Index</title>
+ 
+<link rel="stylesheet" href="/css/bootstrap.min.css" /> 
+</head>
+<body>
+<!--  <div th:replace="fragments/fragment :: header"></div>   -->
+ <center>
+  <h2>Welcome</h2>
+<a href="/login">Login</a>
+<a th:if="${#httpServletRequest.isUserInRole('ADMIN')}" href="/student/viewall">View
+All Student</a><br/>
+ </center>
+<!--  <div th:replace="fragments/fragment :: footer"></div>  -->
+</body>
+</html>
