@@ -7,12 +7,34 @@
 </head>
 <body>
 <!--  <div th:replace="fragments/fragment :: header"></div>   -->
- <center>
+ 
   <h2>Welcome</h2>
 <a href="/login">Login</a>
 <a th:if="${#httpServletRequest.isUserInRole('ADMIN')}" href="/student/viewall">View
 All Student</a><br/>
- </center>
+<div class="row" style="padding-left:30px;" th:if="${#httpServletRequest.isUserInRole('USER')||#httpServletRequest.isUserInRole('ADMIN')}" >
+<div class="col-md-12">
+	 <h3>Lihat Data Mahasiswa Berdasarkan NPM</h3>
+</div>
+ 
+ <form action="/student/view" method="get">
+ <div class="row">
+ 	<div class="col-md-12">
+ 		<div class="form-group">
+ 			<label class="control-label" for="npm">Masukkan Nomor Pokok Mahasiswa</label>
+		 	<input type="text" name="npm" id="npm" class="form-control" />
+		 </div>	
+ 	</div>
+ </div>
+ <div class="row">
+ 	<div class="col-md-3">
+ 		<input type="submit" value="Lihat" />
+ 	</div>
+ </div>
+ </form>
+</div>
+
+ 
 <!--  <div th:replace="fragments/fragment :: footer"></div>  -->
 </body>
 </html>
